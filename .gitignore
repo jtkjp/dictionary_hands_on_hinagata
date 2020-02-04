@@ -86,3 +86,4 @@ lint/tmp/
 .idea
 .flutter-plugins
 .packages
+google-services.json
