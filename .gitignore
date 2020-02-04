@@ -87,3 +87,4 @@ lint/tmp/
 .flutter-plugins
 .packages
 google-services.json
+GoogleService-Info.plist
