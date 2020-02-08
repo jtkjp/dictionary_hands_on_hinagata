@@ -50,7 +50,7 @@ class MyInputFormState extends State<InputForm> {
                 onChanged: (String value) {
                   //変更時のイベント挙動
                   setState(
-                        () {
+                    () {
                       //構造体のtypeの値をvalue(en)に設定
                       data.type = value;
                     },
@@ -64,7 +64,7 @@ class MyInputFormState extends State<InputForm> {
                 title: Text("和英"),
                 onChanged: (String value) {
                   setState(
-                        () {
+                    () {
                       data.type = value;
                     },
                   );
@@ -82,7 +82,11 @@ class MyInputFormState extends State<InputForm> {
                 ),
                 //保存時のイベント挙動
                 onSaved: (String value) {
-                  data.word = value;
+                  setState(
+                    () {
+                      data.word = value;
+                    },
+                  );
                 },
                 //バリデーション時の挙動
                 validator: (value) {
@@ -95,7 +99,6 @@ class MyInputFormState extends State<InputForm> {
                 initialValue: data.word,
               ),
 //////////////////////////////////////////////
-
             ],
           ),
         ),
