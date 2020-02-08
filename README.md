@@ -269,7 +269,12 @@ Googleアナリティクスを有効にするにチェックを入れ続行を�
 
 コレクションID→dictionary
 
-フィールドのパス1→word,Ascending
+※以下2020/2/7修正※
+
+○フィールドのパス1→type,Ascending
+
+×フィールドのパス1→word,Ascending
+
 
 フィールドのパス2→created_at,Descending
 
