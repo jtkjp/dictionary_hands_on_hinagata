@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import '../widget/drawer_menu.dart';
 import './input.dart';
@@ -116,13 +117,13 @@ class _Dictionary extends State<Dictionary>
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           //可変に変更されるウィジェットなのでメソッド化する
-
-//////////////////////////////////////////////
-                          //⑥コメントを外す
                           createWordTile(document),
+
+//////////////////////////////////////////////
+                          //⑦コメントを外す
+                          createButtonBar(document),
 //////////////////////////////////////////////
 
-                          //createButtonBar(document),
                         ],
                       ),
                     );
@@ -135,7 +136,6 @@ class _Dictionary extends State<Dictionary>
     );
   }
 
-//////////////////////////////////////////////
 //⑥個別のワードを表示
   Widget createWordTile(DocumentSnapshot document) {
     //connectionが正常でも翻訳が間に合わないケースがあるため
@@ -163,6 +163,28 @@ class _Dictionary extends State<Dictionary>
     } else {
       return Text("Error");
     }
+  }
+
+//////////////////////////////////////////////
+  //⑦ボタンバーを表示
+  //firestoreの機能のため説明は省きます
+  //コメントを参照してください
+  Widget createButtonBar(DocumentSnapshot document) {
+    return ButtonBar(
+      children: <Widget>[
+        IconButton(
+          icon: Icon(Icons.delete),
+          onPressed: () {
+            //削除処理
+            //documentIDを指定してreferenceを作成し削除する
+            DocumentReference mainReference = Firestore.instance
+                .collection('dictionary')
+                .document(document.documentID);
+            mainReference.delete();
+          },
+        ),
+      ],
+    );
   }
 //////////////////////////////////////////////
 }
